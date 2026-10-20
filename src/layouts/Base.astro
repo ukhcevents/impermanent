@@ -1,0 +1,29 @@
+---
+import "../styles/style.css";
+import Header from "../components/Header.astro";
+---
+
+<html lang="en">
+    <head>
+        <script
+            defer
+            src="https://cloud.umami.is/script.js"
+            data-website-id="b24299b7-7198-4588-b9e3-346569266fa1"></script>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="referrer" content="no-referrer" />
+        <meta name="description" content="Brutal Death from London." />
+        <title>Impermanent</title>
+    </head>
+    <body>
+        <main>
+            <Header />
+
+            <section id="content">
+                <slot />
+            </section>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+---
+import { getCollection } from "astro:content";
+
+const shows = (await getCollection("shows"))
+    .filter(
+        (show) => show.data.date.getTime() >= Date.now() - 24 * 60 * 60 * 1000,
+    )
+    .sort((a, b) => a.data.date.getTime() - b.data.date.getTime());
+---
+
+{
+    shows.map(({ data }) => (
+        <p>
+            <time datetime={data.date.toISOString()}>
+                {data.date.toLocaleDateString("en-GB", {
+                    month: "short",
+                    day: "numeric",
+                    year: "numeric",
+                })}
+            </time>
+            <span> </span>
+            <a href={data.link}>{data.title}</a>
+        </p>
+    ))
+}

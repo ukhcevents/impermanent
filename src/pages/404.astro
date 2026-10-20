@@ -1,0 +1,15 @@
+---
+import "../styles/style.css";
+import Base from "../layouts/Base.astro";
+import { Image } from "astro:assets";
+import Logo from "../img/logo.webp";
+---
+
+<Base>
+    <Image
+        src={Logo}
+        alt="band logo"
+        style="max-width: 60%; margin-left: 20%; margin-right: 20%; height: auto;"
+    />
+    <p style="text-align: center">Not Found</p>
+</Base>

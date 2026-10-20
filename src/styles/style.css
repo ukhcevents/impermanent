@@ -1,0 +1,41 @@
+body {
+    margin: 0 auto;
+    padding: 1rem;
+    max-width: 80ch;
+    line-height: 1.5;
+    background-color: #000;
+    color: #eceff4;
+    font-size: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+a {
+    color: #eceff4;
+}
+
+img {
+    max-width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    height: auto;
+}
+
+/* .cover {
+    max-width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    height: auto;
+} */
+
+ul.base {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 8px;
+    padding-left: 0;
+
+}
+
+li {
+    margin-bottom: 0.5em;
+}
