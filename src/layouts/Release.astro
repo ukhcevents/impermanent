@@ -41,13 +41,11 @@ import Header from "../components/Header.astro";
                     a.hostname.endsWith(".drive.proton.me");
 
                 if (isProtonDrive) {
-                    a.setAttribute("data-umami-event", "file-download");
-                    a.setAttribute("data-umami-event-format", "flac");
+                    const format = (a.textContent || "").trim().toLowerCase();
 
-                    // try to use the link text as the filename, if available
-                    const filename = (a.textContent || "").trim();
-                    if (filename) {
-                        a.setAttribute("data-umami-event-file", filename);
+                    a.setAttribute("data-umami-event", "file-download");
+                    if (format) {
+                        a.setAttribute("data-umami-event-format", format);
                     }
                     return;
                 }
