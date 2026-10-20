@@ -32,10 +32,27 @@ import Header from "../components/Header.astro";
             const zipExtensions = /\.zip$/i;
 
             document.querySelectorAll("a[href]").forEach(function (a) {
-                if (
-                    zipExtensions.test(a.pathname) &&
-                    !a.getAttribute("data-umami-event")
-                ) {
+                if (a.getAttribute("data-umami-event")) {
+                    return;
+                }
+
+                const isProtonDrive =
+                    a.hostname === "drive.proton.me" ||
+                    a.hostname.endsWith(".drive.proton.me");
+
+                if (isProtonDrive) {
+                    a.setAttribute("data-umami-event", "file-download");
+                    a.setAttribute("data-umami-event-format", "flac");
+
+                    // try to use the link text as the filename, if available
+                    const filename = (a.textContent || "").trim();
+                    if (filename) {
+                        a.setAttribute("data-umami-event-file", filename);
+                    }
+                    return;
+                }
+
+                if (zipExtensions.test(a.pathname)) {
                     const filename = a.pathname.split("/").pop();
 
                     // second-to-last segment of the path, e.g. "flac" from /flac/album.zip
