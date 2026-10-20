@@ -1,0 +1,57 @@
+---
+import "../styles/style.css";
+import Header from "../components/Header.astro";
+---
+
+<html lang="en">
+    <head>
+        <script
+            defer
+            src="https://cloud.umami.is/script.js"
+            data-website-id="b24299b7-7198-4588-b9e3-346569266fa1"></script>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="referrer" content="no-referrer" />
+        <meta name="description" content="Brutal Death from London." />
+        <title>Impermanent</title>
+    </head>
+    <body>
+        <main>
+            <Header />
+
+            <section id="content">
+                <slot />
+            </section>
+        </main>
+    </body>
+
+    <script is:inline>
+        document.addEventListener("DOMContentLoaded", function () {
+            const zipExtensions = /\.zip$/i;
+
+            document.querySelectorAll("a[href]").forEach(function (a) {
+                if (
+                    zipExtensions.test(a.pathname) &&
+                    !a.getAttribute("data-umami-event")
+                ) {
+                    const filename = a.pathname.split("/").pop();
+
+                    // second-to-last segment of the path, e.g. "flac" from /flac/album.zip
+                    const segments = a.pathname.split("/").filter(Boolean);
+                    const format =
+                        segments.length > 1
+                            ? segments[segments.length - 2]
+                            : "";
+
+                    a.setAttribute("data-umami-event", "file-download");
+                    a.setAttribute("data-umami-event-file", filename);
+                    if (format) {
+                        a.setAttribute("data-umami-event-format", format);
+                    }
+                }
+            });
+        });
+    </script>
+</html>
