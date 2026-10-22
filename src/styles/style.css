@@ -4,6 +4,7 @@ body {
     max-width: 80ch;
     line-height: 1.5;
     background-color: #000;
+
     color: #eceff4;
     font-size: 1rem;
     font-family: 'Courier New', Courier, monospace;
@@ -19,13 +20,6 @@ img {
     margin-right: 20%;
     height: auto;
 }
-
-/* .cover {
-    max-width: 60%;
-    margin-left: 20%;
-    margin-right: 20%;
-    height: auto;
-} */
 
 ul.base {
     list-style: none;
