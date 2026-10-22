@@ -1,13 +1,17 @@
+html {
+    background-image: url("../img/PlainCover.png");
+    background-repeat: repeat;
+    overscroll-behavior: none;
+    box-sizing: border-box;
+}
+
 body {
     margin: 0 auto;
     padding: 1rem;
     max-width: 80ch;
     line-height: 1.5;
-    background-color: #000;
-
     color: #eceff4;
     font-size: 1rem;
-    font-family: 'Courier New', Courier, monospace;
 }
 
 a {
@@ -19,6 +23,10 @@ img {
     margin-left: 20%;
     margin-right: 20%;
     height: auto;
+}
+
+img.cover {
+    border: 1px solid white;
 }
 
 ul.base {

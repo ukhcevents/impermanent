@@ -1,5 +1,4 @@
 ---
-import "../styles/style.css";
 import Base from "../layouts/Base.astro";
 import Shows from "../components/Shows.astro";
 import Releases from "../components/Releases.astro";
@@ -8,11 +7,7 @@ import { Image } from "astro:assets";
 ---
 
 <Base>
-	<Image
-		src={Logo}
-		alt="band logo"
-		style="max-width: 60%; margin-left: 20%; margin-right: 20%; height: auto;"
-	/>
+	<Image src={Logo} alt="band logo" />
 
 	<h4>Shows</h4>
 	<Shows />

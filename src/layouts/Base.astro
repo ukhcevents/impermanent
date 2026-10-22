@@ -1,6 +1,7 @@
 ---
 import "../styles/style.css";
 import Header from "../components/Header.astro";
+import { Font } from "astro:assets";
 ---
 
 <html lang="en">
@@ -16,6 +17,7 @@ import Header from "../components/Header.astro";
         <meta name="referrer" content="no-referrer" />
         <meta name="description" content="Brutal Death from London." />
         <title>Impermanent</title>
+        <Font cssVariable="--font-ioskeley" />
     </head>
     <body>
         <main>
@@ -25,5 +27,9 @@ import Header from "../components/Header.astro";
                 <slot />
             </section>
         </main>
-    </body>
+    </body><style>
+        html {
+            font-family: var(--font-ioskeley);
+        }
+    </style>
 </html>
