@@ -30,6 +30,12 @@ img.cover {
     border: 1px solid white;
 }
 
+img.merch {
+    max-width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
 ul.base {
     list-style: none;
     display: flex;
